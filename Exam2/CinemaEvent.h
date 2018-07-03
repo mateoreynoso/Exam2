@@ -11,13 +11,12 @@ class CinemaEvent : public Event
 {
 private:
 	std::list<std::string> stadium; // Data structure for containing the event goers in this worldcup event
-	std::string hometeam;
-	std::string visitingteam;
+	std::string movie;
 
 	/**
 	* Constructor for creating a WorldcupEvent
 	*/
-	CinemaEvent(std::string home, std::string visiting) : hometeam(home), visitingteam(visiting) {}
+	CinemaEvent(std::string movie) : movie(movie) {}
 
 	friend class EventFactory;
 
@@ -32,9 +31,8 @@ public:
 
 	void list()
 	{
-		std::cout << "Event statistics" << std::endl;
-		std::cout << "Home team: " << hometeam << std::endl;
-		std::cout << "Visiting team: " << visitingteam << std::endl;
+		std::cout << "The movie is: " << movie << std::endl;
+		std::cout << "Attendees: " << std::endl;
 		for (std::list<std::string>::iterator i = stadium.begin(); i != stadium.end(); i++)
 		{
 			std::cout << *i << std::endl;
@@ -50,11 +48,11 @@ public:
 		it = stadium.erase(it);
 	}
 
-	void stretch()
+	void eat()
 	{
 		for (std::list<std::string>::iterator i = stadium.begin(); i != stadium.end(); i++)
 		{
-			std::cout << '\t' << *i << " stood up and stretched." << std::endl;
+			std::cout << '\t' << *i << " *eats pop corn*" << std::endl;
 		}
 	}
 

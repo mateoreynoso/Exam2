@@ -18,13 +18,11 @@ const int EVENT_COUNT = 3;
 
 int main()
 {
-	// FIXME 5: Create a third kind of event, and test it 
 
 	Event* events[EVENT_COUNT]; //Create a worldcup match and a baseball game
 	events[0] = EventFactory::factory("worldcup", "germany", "mexico"); // Create a worldcup match with the event factory
 	events[1] = EventFactory::factory("baseball", "everett", "spokane");
-	//FIXME 5a: generate an event object for your new kind of event
-	// events[2] = ???
+	events[2] = EventFactory::factory("cinema", "infinity war");
 
 	//Let's go through and test each one
 	for (int i=0; i<EVENT_COUNT-1; i++) {
@@ -44,7 +42,8 @@ int main()
 			dynamic_cast<WorldcupEvent*>(events[i])->chant();
 		if (typeid(BaseballEvent) == typeid(*events[i]))
 			dynamic_cast<BaseballEvent*>(events[i])->stretch();
-		//FIXME 5c: if this is your event, include a call to your event's special behavior
+		if (typeid(CinemaEvent) == typeid(*events[i]))
+			dynamic_cast<CinemaEvent*>(events[i])->eat();
 
 		cout << "Event after Jane leaves:\n";
 		events[i]->list(); // List the people remaining

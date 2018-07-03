@@ -1,3 +1,4 @@
+#include "CinemaEvent.h"
 #include "CinemaTicket.h"
 
 void CinemaTicket::leave()

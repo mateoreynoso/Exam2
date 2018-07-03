@@ -5,6 +5,7 @@
 #include <string>
 #include "BaseballEvent.h"
 #include "WorldcupEvent.h"
+#include "CinemaEvent.h"
 
 /**
 * The Event Factory
@@ -27,6 +28,17 @@ public:
 		{ // Creates a baseball game
 			return new BaseballEvent(hometeam, visitingteam);
 		} 
+		else
+			throw std::invalid_argument("unknown type of event");
+	}
+	
+	// Overloaded constructor for cinema
+	static Event *factory(std::string type, std::string name)
+	{
+		if (type == "cinema")
+		{
+			return new CinemaEvent(name);
+		}
 		else
 			throw std::invalid_argument("unknown type of event");
 	}
