@@ -55,6 +55,7 @@ public:
 		std::cout << "Event statistics" << std::endl;
 		std::cout << "Home team: " << hometeam << std::endl;
 		std::cout << "Visiting team: " << visitingteam << std::endl;
+		// Utilizing the iterator to go through all the names
 		for (std::list<std::string>::iterator i = stadium.begin(); i != stadium.end(); i++)
 		{
 			std::cout << *i << std::endl;
@@ -66,7 +67,8 @@ public:
 	*/
 	void remove(std::list<std::string>::iterator it) 
 	{
-		stadium.erase(it);
+		// Erases the person and moves the iterator to the next item
+		it = stadium.erase(it);
 	}
 
 	/**
